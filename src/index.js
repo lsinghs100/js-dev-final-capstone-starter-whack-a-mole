@@ -184,18 +184,21 @@ function clearScore() {
 *
 */
 function updateTimer() {
-  if (time > 0){
+  if (time > 0) {
     time--;
     timerDisplay.textContent = time;
+
     if (time < 4) {
-      console.log('Started')
+      console.log('Started');
       timerDisplay.classList.add('blink');
       timerDisplay.style.color = 'red';
     }
   }
+
   if (time == 0) {
     timerDisplay.classList.remove('blink');
   }
+
   return time;
 }
 
