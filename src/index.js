@@ -4,6 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 const difficultyLevels = document.querySelectorAll("[name='difficulty']");
+const audio = new Audio('https://github.com/lsinghs100/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/audio.mp3');
 
 let time = 0;
 let timer;
@@ -129,9 +130,14 @@ function showUp() {
 */
 function showAndHide(hole, delay){
   toggleVisibility(hole);
+
+  // Play audio when mole appears
+  audio.play();
   
   const timeoutID = setTimeout(() => {
     toggleVisibility(hole);
+    audio.pause();
+    audio.currentTime = 0; // Reset audio to the beginning
     
     gameOver();
   }, delay);
@@ -256,7 +262,8 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  audio.pause();
+  audio.currentTime = 0; // Reset audio to the beginning
   clearInterval(timer);
   alert(`Game over !!! you have scored ${points} at difficulty level ${difficulty}`);
   return "game stopped";
@@ -273,6 +280,8 @@ function startGame(){
   setDuration(10);
   showUp();
   setEventListeners();
+  // Play audio when the game starts
+  audio.play();
   startTimer();
   return "game started";
 }
