@@ -4,7 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 const difficultyLevels = document.querySelectorAll("[name='difficulty']");
-const audio = new Audio('https://github.com/lsinghs100/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/audio.mp3');
+const audio = new Audio('https://github.com/lsinghs100/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/audio.mp3?raw=true"');
 
 let time = 0;
 let timer;
