@@ -190,6 +190,7 @@ function updateTimer() {
     if (time < 4) {
       console.log('Started')
       timerDisplay.classList.add('blink');
+      timerDisplay.style.color = 'red';
     }
   }
   if (time == 0) {
